@@ -11,14 +11,13 @@ router = APIRouter(
 
 @router.get("/", response_model=List[schemas.Post])
 def get_posts(db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
-    # posts = db.query(models.Post).filter(models.Post.owner_id == current_user.id).all() # if you want to ensure that only the creator of the posts could see them
     posts = db.query(models.Post).all()
     return posts
 
 @router.post("/", status_code=status.HTTP_201_CREATED, response_model=schemas.Post)
 def create_post(post: schemas.PostCreate, db: Session = Depends(get_db), current_user: int = Depends(oauth2.get_current_user)):
     print(current_user.email)
-    new_post = models.Post(owner_id=current_user.id, **post.dict()) # same like this: new_post = models.Post(title=post.title, content=post.content, published=post.published)
+    new_post = models.Post(owner_id=current_user.id, **post.dict())
     db.add(new_post)
     db.commit()
     db.refresh(new_post)
@@ -29,8 +28,6 @@ def get_post(id: int, db: Session = Depends(get_db), current_user: int = Depends
     post = db.query(models.Post).filter(models.Post.id == id).first()
     if not post:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"post with id: {id} was not found")
-    # if post.owner_id != current_user.id:  if you want to ensure that only the creator of the posts could see them
-    #     raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail=f"not authorized to perform requested action")
     return post
 
 @router.delete("/{id}", status_code=status.HTTP_204_NO_CONTENT)
