@@ -2,7 +2,7 @@ import requests
 import time
 
 
-bearer = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxOSwiZXhwIjoxNjg0NDk2MzU1fQ.B2mzwgmg5KA0mUhh-9t3PPvEwaTsBHTLjPQXJ5QeaAU"
+bearer = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoyNCwiZXhwIjo1Mjg1MDM1NzUzfQ.NC7GUMQZEFICVGDNp9ELtFdIEhdiUYsAT3jeq8pR2xw"
 
 # Login request to get the Bearer token
 login_url = 'http://127.0.0.1:8000/login'
