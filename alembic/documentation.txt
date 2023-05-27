@@ -1,0 +1,14 @@
+alembic init <name> -> initialized the alembic version control like git init <name>
+
+alembic revision -m "<message>" -> creates a new revision like git commit -m "<message>"
+alembic revision --autogenerate -m "autogenerate votes table" -> use the "--autogenerate" parameter to auto generate all of your reference model from the target_metadata variable in the env.py file ... we can add changes to the models.py file and run this command to upgrade the database
+
+alembic current -> gets the current active revision version git rev-parse origin/master
+
+alembic heads -> gets the newest revisionn version like git rev-parse HEAD
+
+alembic upgrade/downgrade <revision-number from versions folder> -> add new changes to the database like git push
+
+alembic downgrade <down_revision-number from versions folder> -> go to specific revision version like git checkout <commit-hash>
+
+alembic history -> list up all actions like git log
