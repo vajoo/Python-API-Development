@@ -238,3 +238,38 @@ sudo ufw status -> check if firewall is active
 
 if you want to remove one firewall rule do: sudo ufw delete allow <port>
 
+## update codebase
+
+cd /app/src
+
+sudo git pull
+
+sudo systemctl restart api
+
+## setup Docker
+
+create a Dockerfile
+
+paste the code into the file
+
+docker build -t fastapi . -> build the image
+
+docker run fastapi -> runs the container
+
+create a docker-compose.yml file -> you dont have to remeber the command to execute docker container and you can start more than just one container at the same time
+
+paste the code into the file
+
+docker-compose up -d -> runs the docker-compose file and starts all of the containers and run them in the background because of the -d flag
+
+docker ps -a -> see if the container is running
+
+docker logs <NAME from docker ps -a> -> view the console logs
+
+docker compose down -> shut down the container
+
+if you change the image you have to insert this command docker-compose up -d --build -> build images before starting the containers
+
+docker exec -it <conteiner-name> bash -> to access the container and check if everything works fine
+
+after starting the container log into the api container and run this command -> alembic upgrade head -> to setup the tables
