@@ -1,6 +1,13 @@
 from fastapi import FastAPI
-from .routers import post, user, auth, vote
 from fastapi.middleware.cors import CORSMiddleware
+
+from . import models
+from .database import engine
+from .routers import post, user, auth, vote
+
+
+
+# models.Base.metadata.create_all(bind=engine) sqlalchemy auto create tables if not exist
 
 # start app with uvicorn: uvicorn <package-name>.<filename>:<fastapi-instance-name> --reload -> uvicorn app.main:app --reload
 app = FastAPI()

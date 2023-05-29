@@ -273,3 +273,5 @@ if you change the image you have to insert this command docker-compose up -d --b
 docker exec -it <conteiner-name> bash -> to access the container and check if everything works fine
 
 after starting the container log into the api container and run this command -> alembic upgrade head -> to setup the tables
+
+if you changed the name of the docker-compose.yml file do docker-compose -f <filename> up -d
