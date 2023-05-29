@@ -194,3 +194,47 @@ sudo apt install nginx
 systemctl start nginx
 
 default configuration in /etc/nginx/sites-available/
+
+replace the last code section of the config with the content of the nginx file
+
+systemctl status nginx -> check "Loaded" line for "enabled" so that nginx starts on boot. If it is disabled do systemctl enable nginx
+
+## setup HTTPS
+
+sudo apt install snapd
+
+sudo snap install core; sudo snap refresh core -> ensure that you have the latest version of snapd
+
+sudo snap install --classic certbot -> install certbot
+
+sudo ln -s /snap/bin/certbot /usr/bin/certbot -> check if the certbot command can be run
+
+sudo certbot --nginx -> get and install certificate and edit your nginx configuration automatically or do -> sudo certbot certonly --nginx -> to just get the certificate. Enter your E-Mail Address and type Y to accept the terms of service and type N for the next one and type the domain name to the next question like "laurinwindhaus.de www.laurinwindhaus.de" without "
+
+sudo certbot renew --dry-run -> test automatic renewal. The Certbot packages on the system come with a cron job or systemd timer that will renew the certificates automatically before they expire. There is no need to run Certbot again, unless you change your configuration. The command to renew certbot is installed in one of the following locations:
+/etc/crontab/
+/etc/cron.*/*
+systemctl list-timers
+
+enter your url and check if everything works fine
+
+## setup basic firewall
+
+sudo apt install ufw -> install firewall
+
+sudo ufw status -> check if firewall is active
+
+sudo ufw allow http
+
+sudo ufw allow https
+
+sudo ufw allow ssh
+
+sudo ufw allow 5432 -> postgres, but its not good to allow access to database from outsite
+
+sudo ufw enable -> activate firewall
+
+sudo ufw status -> check if firewall is active
+
+if you want to remove one firewall rule do: sudo ufw delete allow <port>
+
