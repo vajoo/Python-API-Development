@@ -1,3 +1,7 @@
+# Start the python virtual environment
+
+.\venv\Scripts\activate
+
 # Alembic
 
 alembic init <name> -> initialized the alembic version control like git init <name>
@@ -247,6 +251,33 @@ sudo git pull
 sudo systemctl restart api
 
 ## setup Docker
+
+sudo apt-get update
+
+sudo apt-get upgrade
+
+sudo apt-get install apt-transport-https ca-certificates curl gnupg2 software-properties-common -> install the necessary packages to allow apt to use repositories over HTTPS
+
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -    -> add the GPG key to your system
+
+sudo apt-key fingerprint 0EBFCD88 -> should output: 9DC8 5822 9FC7 DD38 854A E2D8 8D81 803C 0EBF CD88
+
+sudo add-get-repository "deb [arch=amd64] https://download.docker.com/debian $(lsb_release -cs) stable" -> add the Docker repository to your system's sources.list
+
+sudo apt-get update    -> update the package lists again to include the Docker repository
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io     -> install docker
+
+sudo systemctl status docker -> verify that docker is running
+
+sudo usermod -aG docker $USER -> add your user to the docker group to run docker commands without sudo
+
+install docker-compose:
+sudo curl -sSL https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
+
+sudo chmod +x /usr/local/bin/docker-compose
+
+docker-compose --version -> check if docker-compose was successfully installed
 
 create a Dockerfile
 
