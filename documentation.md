@@ -250,7 +250,7 @@ sudo git pull
 
 sudo systemctl restart api
 
-## setup Docker
+# setup Docker
 
 sudo apt-get update
 
@@ -305,3 +305,13 @@ docker exec -it <conteiner-name> bash -> to access the container and check if ev
 after starting the container log into the api container and run this command -> alembic upgrade head -> to setup the tables
 
 if you changed the name of the docker-compose.yml file do docker-compose -f <filename> up -d
+
+# setup pytest
+
+pytest -> tests all test_files which starts with test_ oder ends with _test
+
+pytest --help -> list of all commands
+
+-v -> instead of printing dots to show if tests of a file failed or succeeded it will print the function name of the test function
+
+-s -> prints out the print statements of the test functions
