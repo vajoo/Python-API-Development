@@ -315,3 +315,5 @@ pytest --help -> list of all commands
 -v -> instead of printing dots to show if tests of a file failed or succeeded it will print the function name of the test function
 
 -s -> prints out the print statements of the test functions
+
+pytest folder\file -> test just tests from specific file
