@@ -317,3 +317,8 @@ pytest --help -> list of all commands
 -s -> prints out the print statements of the test functions
 
 pytest folder\file -> test just tests from specific file
+
+pytest --disable-warnings -> disable the warning messages
+
+-x -> if a test failes the remaining tests won´t be executed anymore
+
