@@ -115,11 +115,3 @@ def test_update_post_non_exist(authorized_client, test_posts):
                 }
     res = authorized_client.put(f"/posts/88888888", json=post_data)
     assert res.status_code == 404
-
-
-
-
-
-
-
-# video - 17:07:50
