@@ -80,4 +80,4 @@ jobs:
           script: |
             cd app/src
             sudo git pull
-            echo ${{ secrets.PRODUCTION_PASSWORD }} | sudo -S systemctl restart api
+            sudo systemctl restart api
