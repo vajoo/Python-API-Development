@@ -70,5 +70,14 @@ jobs:
     needs:  [build]
 
     steps:
-      - name: deploy on server
-        run:  echo "going to deploy on server"
+      - name: deploy on raspberry pi server
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.PRODUCTION_HOST }}
+          username: ${{ secrets.PRODUCTION_USERNAME }}
+          password: ${{ secrets.PRODUCTION_PASSWORD }}
+          port: ${{ secrets.PRODUCTION_SSH_PORT }}
+          script: |
+            cd app/src
+            git pull
+            echo ${{ secrets.PRODUCTION_PASSWORD }} | sudo -S systemctl restart api
