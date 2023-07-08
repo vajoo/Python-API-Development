@@ -1,5 +1,4 @@
 name: Build and Deploy Code
-18:23:46
 on:
   push:
     branches:
