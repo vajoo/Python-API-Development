@@ -79,5 +79,5 @@ jobs:
           port: ${{ secrets.PRODUCTION_SSH_PORT }}
           script: |
             cd app/src
-            git pull
+            sudo git pull
             echo ${{ secrets.PRODUCTION_PASSWORD }} | sudo -S systemctl restart api
