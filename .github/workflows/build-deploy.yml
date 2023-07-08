@@ -79,6 +79,7 @@ jobs:
           port: ${{ secrets.PRODUCTION_SSH_PORT }}
           script: |
             cd app/src
-            pwd
+            echo "hey"
+            echo "$PWD"
             sudo git pull
             sudo systemctl restart api
