@@ -7,7 +7,7 @@ def test_get_all_posts(authorized_client, test_posts):
         return schemas.PostOut(**post)
     posts_map = map(validate, res.json())
     assert len(res.json()) == len(test_posts)
-    assert res.status_code == 201
+    assert res.status_code == 200
 
 
 def test_unauthorized_user_get_all_posts(client, test_posts):
