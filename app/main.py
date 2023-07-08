@@ -30,6 +30,7 @@ def root():
     return {"message": "Hello World!"}
 
 # TODO
+# - Tutorial finished
 # - Refresh token mechanism
 # - disable user in database mechanism
 # - add user role
