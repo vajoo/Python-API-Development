@@ -5,3 +5,12 @@ Dockerfile
 .dockerignore
 nginx
 gunicorn.service
+documentation.md
+docker-compose-prod.yml
+docker-compose-dev.yml
+alembic.ini
+.gitignore
+tests/
+alembic/
+.pytest_cache
+.github/
