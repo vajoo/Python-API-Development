@@ -14,3 +14,4 @@ tests/
 alembic/
 .pytest_cache
 .github/
+.vscode/
